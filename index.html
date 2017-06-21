@@ -36,14 +36,15 @@
                 </a-entity>
 
                 <a-entity mixin="social" material="src: #porto; color: #1DA1F2" position="-0.6 0 0.01" href="https://dphlmunc.github.io/Portfolio" target="_blank#scale">
-                    <a-animation id="scale" attribute="scale" from="1 1 1" to="2 2 2" begin="href" dur="800" easing="ease-in"></a-animation>
+                    <a-animation attribute ="material.color" from="white" to="red" dur="300"></a-animation>
+                    <a-animation id="scale" attribute="scale" from="1 1 1" to="2 2 2" begin="href" dur="300" easing="ease-in"></a-animation>
                 </a-entity>
 
                 <a-entity mixin="social" material="src: #twitter; color: #1DA1F2" position="0 0 0.01" href="https://twitter.com/munckhy/" target="_blank#scale">
-                    <a-animation id="scale" attribute="scale" from="1 1 1" to="1.6 1.6 1.6" begin="href" dur="800" easing="ease-in"></a-animation>
+                    <a-animation id="scale" attribute="scale" from="1 1 1" to="1.6 1.6 1.6" begin="href" dur="300" easing="ease-in"></a-animation>
                 </a-entity>
                 <a-entity mixin="social" material="src: #github" position="0.3 0 0.01" href="https://github.com/dphlmunc/" target="_blank#scale">
-                    <a-animation id="scale" attribute="scale" from="1 1 1" to="1.6 1.6 1.6" begin="href" dur="800" easing="ease-in"></a-animation>
+                    <a-animation id="scale" attribute="scale" from="1 1 1" to="1.6 1.6 1.6" begin="href" dur="300" easing="ease-in"></a-animation>
                 </a-entity>
             </a-plane>
 
@@ -58,7 +59,13 @@
 
         <a-sky radius="10" src="#field"></a-sky>
         <a-entity camera="camera" look-controls="look-controls" wasd-controls="wasd-controls" position="0 2 1.8">
-            <a-cursor color="#2E9AFE" fuse="true"></a-cursor>
+            <a-cursor color="#2E9AFE" fuse="true"
+                      event-set__enter="_event: mouseenter; color: yellow"
+                      event-set__down="_event: mousedown; color: red"
+                      event-set__up="_event: mouseup; color: yellow"
+                      event-set__leave="_event: mouseleave; color: blue">
+
+            </a-cursor>
         </a-entity>
     </a-scene>
 </body>
