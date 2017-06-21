@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://res.cloudinary.com/dybluctxg/raw/upload/v1495309810/index_bp9czc.js"></script>
+    <script src="js.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-entity camera look-controls wasd controls>
+        <a-assets>
+            <img id="field" src="https://res.cloudinary.com/dybluctxg/image/upload/v1495307503/field_kcw4so.jpg"/>
+        </a-assets>
+        <a-entity camera>
+            <a-entity cursor="fuse: true; maxDistance: 30; timeout: 500"
+                      size="1 1 1"
+                      position="0 0 -5"
+                      geometry="primitive: ring"
+                      material="color: red; shader: flat">
+            </a-entity>
+        </a-entity>
+        <a-entity id="cube" geometry="primitive: box" material="color: blue" position="0 0 -5"></a-entity>
+<script>
+    document.querySelector('#cube').addEventListener('click', function () {
+    this.setAttribute('material', 'color', 'red');
+    console.log('I was clicked!');
+});</script>
+
+        <a-sky radius="10" src="#field"></a-sky>
+        </a-entity>
+    </a-scene>
+</body>
+
+</body>
+</html>
