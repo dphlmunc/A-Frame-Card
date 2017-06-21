@@ -27,9 +27,12 @@
             </a-plane>
 
             <a-plane id="divider" width="1.5" height="0.01" position="0 -0.6 0.01" color="#697982" opacity="0.3"></a-plane>
+
             <a-plane width="1.0" height="0.2" position="0.15 -0.8 0">
-                <a-entity mixin="social" material="src: #codepen" position="-0.3 0 0.01" href="https://codepen.io/dphlmunc/" target="#scale">
-                    <a-animation id="scale" attribute="scale" from="1 1 1" to="1.6 1.6 1.6" begin="href" dur="800" easing="ease-in"></a-animation>
+                <a-entity mixin="social" material="src: #codepen" position="-0.3 0 0.02" href="https://codepen.io/Munckhy/" target="_blank"
+                    event-set__down="_event: mousedown; scale: 1.2 1.2 1.2"
+                    event-set__up="_event: mouseup; scale: 1 1 1"
+                    event-set__leave="_event: mouseleave; scale: 1 1 1">
                 </a-entity>
 
                 <a-entity mixin="social" material="src: #porto; color: #1DA1F2" position="-0.6 0 0.01" href="https://dphlmunc.github.io/Portfolio" target="_blank#scale">
