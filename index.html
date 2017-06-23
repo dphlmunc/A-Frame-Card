@@ -6,10 +6,118 @@
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://res.cloudinary.com/dybluctxg/raw/upload/v1495309810/index_bp9czc.js"></script>
     <script src="node_modules/webvr-ui/build/webvr-ui.js"></script>
+    <style>
+        html, body {
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-x: hidden;
+            font-family: 'Karla', sans-serif;
+            text-align: center;
+        }
 
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        p {
+            margin: 0 0 50px;
+        }
+
+        #container {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        #ui {
+            margin: 0 auto;
+            color: white;
+            text-align: center;
+            width: 460px;
+        }
+
+        pre {
+            background-color: rgba(0,0,0,0.5);
+            padding: 10px;
+            display: inline-block;
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        .button {
+            margin-top:20px;
+            padding-left:20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .webvr-ui-button {
+            display: inline-block;
+
+        }
+
+        a {
+            color: white;
+        }
+
+        #exit {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-size: 25px;
+            text-decoration: none;
+            z-index: 2;
+        }
+
+        .github-corner-wrap{
+            position: fixed; top: 0; right:0; z-index: 1
+        }
+        .github-corner:hover .octo-arm{
+            animation:octocat-wave 560ms ease-in-out
+        }
+        @keyframes octocat-wave{
+            0%,100%{transform:rotate(0)}
+            20%,60%{transform:rotate(-25deg)}
+            40%,80%{transform:rotate(10deg)}
+        }
+        @media (max-width:500px){
+            .github-corner:hover .octo-arm{
+                animation:none
+            }
+            .github-corner .octo-arm{
+                animation:octocat-wave 560ms ease-in-out
+            }
+        }
+
+    </style>
+
+    <!-- three.js library -->
+    <script src="node_modules/three/build/three.js"></script>
+
+    <!-- VRControls.js applies the WebVR transformations to a three.js camera object. -->
+    <script src="node_modules/three/examples/js/controls/VRControls.js"></script>
+
+    <!-- VREffect.js handles stereo camera setup and rendering.  -->
+    <script src="node_modules/three/examples/js/effects/VREffect.js"></script>
+
+    <!-- A polyfill for the WebVR API.  -->
+    <script src="node_modules/webvr-polyfill/build/webvr-polyfill.js"></script>
+
+    <!-- Include WebVR UI -->
+    <script src="../build/webvr-ui.js"></script>
 </head>
 <body>
-    <a-scene webvr-ui="color: black; background: white;">
+    <a-scene webvr-ui>
 
         <a-assets>
             <img id="field" src="https://res.cloudinary.com/dybluctxg/image/upload/v1495307503/field_kcw4so.jpg"/>
