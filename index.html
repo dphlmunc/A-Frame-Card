@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="origin-trial" data-feature="WebVR" data-expires="2017-06-13" content="Av+kmgEvMcHg6hEKdPiW32muXnGZKlucZCp/BTvMrkLVNStJVsHV3TPz34LmJ5mESRnfUEIVVYHFgHNEpqguhgIAAABReyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXZyLmdpdGh1Yi5pbzo0NDMiLCJmZWF0dXJlIjoiV2ViVlIiLCJleHBpcnkiOjE0OTczMTIwMDB9">
+    <title>Danny van den Munckhof | A-Frame Card</title>
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://res.cloudinary.com/dybluctxg/raw/upload/v1495309810/index_bp9czc.js"></script>
+    <script src="node_modules/webvr-ui/build/webvr-ui.js"></script>
+
 </head>
 <body>
-    <a-scene>
+    <a-scene webvr-ui="color: black; background: white;">
+
         <a-assets>
             <img id="field" src="https://res.cloudinary.com/dybluctxg/image/upload/v1495307503/field_kcw4so.jpg"/>
             <img id="photo" src="img/1560565_782499861825636_5942322296424206450_n.jpg"/>
@@ -16,6 +21,15 @@
             <img id="github" src="https://res.cloudinary.com/dybluctxg/image/upload/v1495310880/github_ipn5do.png"/>
             <a-mixin class="links" id="social" geometry="primitive: circle; radius: 0.1" material="color: #fff; transparent: true"></a-mixin>
         </a-assets>
+
+        <script>
+            var renderer = new THREE.WebGLRenderer();
+
+        var options = {}
+        var enterVR = new webvrui.EnterVRButton(renderer.domElement, options);
+        document.body.appendChild(enterVR.domElement);
+        </script>
+
 
         <a-entity geometry="primitive: plane; width: 1.6; height: 2" material="color: #FFF" position="0 2 0"
                   animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1000; to: 0 -0.10 -5; loop: true">
@@ -37,7 +51,7 @@
 
                 <a-entity mixin="social" material="src: #porto; color: #1DA1F2" position="-0.6 0 0.01" href="https://dphlmunc.github.io/Portfolio" target="_blank#scale">
                     <a-animation attribute ="material.color" from="white" to="red" dur="300"></a-animation>
-                    <a-animation id="scale" attribute="scale" from="1 1 1" to="2 2 2" begin="href" dur="300" easing="ease-in"></a-animation>
+                    <a-animation id="scale" attribute="scale" from="1 1 1" to="2 2 2" begin="href" dur="300" easing="ease-in" fuseTimeout="true"></a-animation>
                 </a-entity>
 
                 <a-entity mixin="social" material="src: #twitter; color: #1DA1F2" position="0 0 0.01" href="https://twitter.com/munckhy/" target="_blank#scale">
@@ -63,8 +77,8 @@
                       event-set__enter="_event: mouseenter; color: yellow"
                       event-set__down="_event: mousedown; color: red"
                       event-set__up="_event: mouseup; color: yellow"
-                      event-set__leave="_event: mouseleave; color: blue">
-
+                      event-set__leave="_event: mouseleave; color: blue"
+                     raycaster="far: 10; interval: 10; near: 0.01">
             </a-cursor>
         </a-entity>
     </a-scene>
